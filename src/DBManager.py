@@ -1,7 +1,7 @@
 import psycopg2
 
 from src.vacancy import Vacancy
-from src.config import Сonfig
+from src.config import config
 from src.HH import HH
 from psycopg2.extensions import connection, cursor
 
@@ -149,7 +149,7 @@ class DBManager:
 
     def get_vacancies_with_keyword(self, word: str) -> list:
         """Метод получает список всех вакансий, в названии, которых содержатся
-        переданные в метод слова, например python."""
+        переданные в метод слова, например - python."""
         conn = psycopg2.connect(dbname=self.database_name, **self.params)
         cur = conn.cursor()
         cur.execute(
